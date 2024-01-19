@@ -39,15 +39,13 @@ local function backupDirectory(sourceDir, backupDir)
     end
 end
 
-local function backupUserData()
+local function backupUserData(backupDir)
     local userDirs = {
         os.getenv("HOME") .. "/Desktop",
         os.getenv("HOME") .. "/Documents",
         os.getenv("HOME") .. "/Downloads",
         os.getenv("HOME") .. "/Pictures",
     }
-
-    local backupDir = "/path/to/backup/directory"
 
     print("Starting backup...\n")
 
@@ -62,4 +60,12 @@ local function backupUserData()
     print("\nBackup completed.")
 end
 
-backupUserData()
+local args = {...}
+local backupDir = args[1]
+
+if not backupDir then
+    print("Usage: lua script.lua <backup_directory>")
+    os.exit(1)
+end
+
+backupUserData(backupDir)
