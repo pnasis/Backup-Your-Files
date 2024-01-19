@@ -8,7 +8,6 @@ Ensure that you have Lua and the LuaFileSystem library installed on your Linux s
 sudo luarocks install luafilesystem
 
 ```
-After that, you will need to change
 
 ## Usage
 You can run the script on your Linux machine using the Lua interpreter, providing the destination directory of the backup:
